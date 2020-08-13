@@ -54,11 +54,11 @@ namespace TranslationTextReplacer
             //replacer = replacer.Replace("....", "...");
 
             replacer = Regex.Replace(replacer, @"(^|[^\.])(\.{3})+(\.{1,2})([^\.]|$)", "$1$2$4");
-            replacer = Regex.Replace(replacer, @"[\s](?<!\.)(\.{3})+(?!\.)([\S]|$)", "$2$3 $4").TrimEnd();
+            replacer = Regex.Replace(replacer, @"[\s](?<!\.)(\.{3})+(?!\.)([\S]|$)", "$2$3 $4");
             replacer = Regex.Replace(replacer, @"(^|[^\.])(\.{2})([^\.]|$)", "$1$2.$3");
             replacer = Regex.Replace(replacer, "[ ]{2,}", " ");
 
-            return replacer;
+            return replacer.TrimEnd();
         }
     }
 }
